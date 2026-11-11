@@ -374,3 +374,5 @@ td:first-child { font-weight: 800; white-space: nowrap; }
 .btn-back svg { width: 18px; height: 18px; transition: transform .2s; }
 .btn-back:hover svg { transform: translateX(-3px); }
 @media (max-width: 460px) { .nav-cta .btn-back { display: inline-flex; width: auto; padding: 0 14px; } }
+/* Phones: the floating badges would cover the phone screenshot, so hide them there. */
+@media (max-width: 600px) { .hero-badge { display: none; } }
