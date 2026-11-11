@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy · Car Play Auto Sync</title>
-<meta name="description" content="Privacy policy for the Car Play Auto Sync for ZLINK Android app: what data the app uses, where it is stored, and which services it talks to.">
+<meta name="description" content="How Car Play Auto Sync for ZLINK handles your data: what stays on your phone, what the AI, map and music features send, and which Google services the app uses.">
 <meta name="theme-color" content="#FF6B4A">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="assets/img/icons/launcher_round.png?v=1">
@@ -33,106 +33,172 @@
     <article class="doc">
       <span class="eyebrow">Privacy policy</span>
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: 11 November 2026</p>
+      <p class="updated">Last updated: 11 November 2026 · App version 5.0</p>
 
-      <p>This policy explains how <b>Car Play Auto Sync for ZLINK</b> ("the app", "we", "us"), published by
-         UtilEdge, handles your information. In short: the app has no account and no server of its own.
-         Your car data is saved on your device, and it only leaves your device for the specific online
-         features listed below.</p>
+      <p>This policy covers <b>Car Play Auto Sync for ZLINK</b>, an Android app made by UtilEdge. It explains what
+         the app stores, what it sends over the internet, and who receives it. We wrote it from the app's actual
+         code, so if something here doesn't match what you see in the app, please tell us and we'll fix it.</p>
 
-      <h2>1. Data stored on your device</h2>
-      <p>Everything you enter is stored in a local database inside the app on your phone or head unit:</p>
+      <h2>The short version</h2>
       <ul>
-        <li>Vehicles: make, model, year, VIN, registration number, mileage and photos.</li>
-        <li>Maintenance records, activity logs, reminders, fuel fill-ups, expenses and invoices.</li>
-        <li>Documents you add (such as registration or insurance) and their expiry dates.</li>
-        <li>Parking spots you save (location and time).</li>
-        <li>Your profile details, driving licence details and the emergency contacts you add.</li>
-        <li>App settings.</li>
+        <li>You don't create an account, and we don't run a server that collects your car records.</li>
+        <li>Your vehicles, logs, expenses, documents, parking spots and contacts are saved only on your device.</li>
+        <li>Your photos leave the device only when you use one of the two AI features, and only for that request.</li>
+        <li>The app uses Google services for ads, usage statistics, crash reports and notifications. Those collect
+            device-level data, described in section 4.</li>
+        <li>Map, weather, music and radio features contact outside services when you use them (section 3).</li>
       </ul>
-      <p>We cannot see or access this data. It is not uploaded or backed up by us. You can delete it at any
-         time from <b>Profile → Delete all data</b>, or by uninstalling the app.</p>
 
-      <h2>2. Features that use the internet</h2>
-      <p>The following features send data to third-party services, only when you use them:</p>
+      <h2>1. What stays on your device</h2>
+      <p>The app keeps your information in its own private storage. Other apps can't read it, and we can't see it.
+         This includes:</p>
+      <ul>
+        <li><b>Vehicles:</b> make, model, year, VIN, registration number, fuel type, mileage and the vehicle photo.</li>
+        <li><b>Records:</b> maintenance, activity log, reminders, fuel fill-ups, expenses, invoices with their line
+            items, and any files you attach to them.</li>
+        <li><b>Documents:</b> the photos or PDFs you add (for example registration or insurance papers) and their
+            expiry dates.</li>
+        <li><b>Parking:</b> the location and time of each spot you save, and the places you save on the Drive Mode map.</li>
+        <li><b>Profile:</b> your name, phone, email and photo if you enter them, and your driving licence number and
+            expiry date.</li>
+        <li><b>Emergency contacts:</b> name, phone number and relationship for each contact you add.</li>
+        <li><b>AI results:</b> images made with AI Car Modification are saved inside the app.</li>
+        <li><b>Preferences:</b> settings, map layer, music and radio favourites, links to songs you picked from your
+            phone, and a count of how many AI requests you made today.</li>
+      </ul>
+      <p>Android's automatic backup is turned off for this app, so none of this is copied to your Google account.
+         The flip side is that if you uninstall the app or change phones, your records don't come with you.</p>
+
+      <h2>2. The AI features</h2>
+      <p>Both AI features use OpenAI's API. Nothing is sent until you tap the button that starts the request.</p>
+      <h3>AI Car Modification</h3>
+      <p>You choose a template and a photo. Before anything is uploaded, the app checks the photo on your phone with
+         Google's ML Kit, for example that it shows a car, or a person for the "Me with a car" templates. That
+         check runs offline. The app then crops the photo, saves it as a new JPEG (which removes location and other EXIF data)
+         and sends it to OpenAI with the template's text instructions. OpenAI returns the edited image.</p>
+      <p>The result is saved inside the app. It only goes to your gallery (the <code>Pictures/CarPlay AI</code>
+         folder) if you tap Save, and only goes to another app if you tap Share.</p>
+      <h3>Inspection with AI</h3>
+      <p>You pick an area of the car and add one to three photos. The app shrinks them and removes their EXIF data,
+         then sends them to OpenAI twice: first a small copy to confirm the photos show the right part of the car,
+         then a larger copy for the inspection itself. The request asks OpenAI not to store it
+         (<code>store: false</code>).</p>
+      <p>Each inspection request also includes a random ID created when you installed the app. It is hashed, it
+         isn't linked to your name or Google account, and OpenAI uses it only to detect abuse. Inspection results
+         are kept in memory while the app is open and are never saved.</p>
+      <h3>A few things to know</h3>
+      <ul>
+        <li>OpenAI handles what it receives under its own <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">privacy policy</a>
+            and API data terms.</li>
+        <li>Don't upload photos with people in them unless they're fine with it.</li>
+        <li>Daily AI limits are counted on your device, not on a server.</li>
+        <li>AI output can be wrong. An inspection result is a first look, not a mechanic's report.</li>
+        <li>The template gallery's preview pictures are downloaded from Unsplash. That download sends no personal
+            information beyond a normal web request.</li>
+      </ul>
+
+      <h2>3. Maps, weather, music and radio</h2>
+      <p>These features ask other services for information. They work like visiting a website: the service sees
+         your IP address plus whatever the feature needs to send.</p>
       <div class="table-wrap"><table>
-        <thead><tr><th>Feature</th><th>What is sent</th><th>Service</th></tr></thead>
+        <thead><tr><th>Feature</th><th>What is sent</th><th>Who receives it</th></tr></thead>
         <tbody>
-          <tr><td>AI Car Modification</td><td>The photo you choose (cropped) and the selected style instructions.</td><td>OpenAI</td></tr>
-          <tr><td>Inspection with AI</td><td>The 1 to 3 photos you add for the chosen area.</td><td>OpenAI</td></tr>
-          <tr><td>Map, place search and nearby places</td><td>Your approximate or current location and your search text.</td><td>Google Maps / Places, OpenStreetMap (Nominatim, Overpass, OSRM)</td></tr>
-          <tr><td>Weather in Drive Mode</td><td>Your location, or an approximate city-level position based on your IP address when no GPS fix is available.</td><td>Open-Meteo, ipwho.is</td></tr>
-          <tr><td>Online music and radio</td><td>Your search text and the stream you choose.</td><td>Online music preview and radio directory services</td></tr>
-          <tr><td>AI template thumbnails</td><td>Standard image requests.</td><td>Unsplash</td></tr>
-          <tr><td>App configuration</td><td>Standard device and app information needed to fetch settings.</td><td>Firebase Remote Config (Google)</td></tr>
+          <tr><td>Map display</td><td>The map area on screen, and your position if you allowed location.</td><td>Google Maps</td></tr>
+          <tr><td>Search and nearby places</td><td>What you type, or the category you tap, plus an approximate location so results are local.</td><td>Google Places API. If that fails: OpenStreetMap Nominatim and the public Overpass servers</td></tr>
+          <tr><td>Routes in Drive Mode</td><td>Start and end coordinates.</td><td>OSRM (project-osrm.org)</td></tr>
+          <tr><td>Weather</td><td>Your coordinates. With no location fix, the app first asks ipwho.is for your city from your IP address.</td><td>Open-Meteo, ipwho.is</td></tr>
+          <tr><td>Online music</td><td>Your search words. You get 30-second song previews.</td><td>Apple iTunes Search, Deezer</td></tr>
+          <tr><td>YouTube Music / Spotify</td><td>Nothing. The button just opens their app or website.</td><td>—</td></tr>
+          <tr><td>Radio</td><td>The country you browse. The station you play streams from that station's own server.</td><td>Radio Browser, the radio station</td></tr>
+          <tr><td>Navigate to your car</td><td>The destination, handed to the maps app you choose.</td><td>Your maps app (for example Google Maps)</td></tr>
         </tbody>
       </table></div>
-      <p>Photos sent for AI features are used only to produce your result. The app does not keep inspection
-         sessions after you leave them, and we do not store your photos on any server of ours. These
-         providers process data under their own privacy policies.</p>
-      <p>AI results are generated automatically and can be wrong. Inspection with AI is a helpful first look,
-         not a professional vehicle inspection.</p>
+      <p>Songs you add from your phone are played straight from your device. The app only gets access to the files
+         you pick.</p>
 
-      <h2>3. Location</h2>
-      <p>The app asks for location only while you use it, for the speedometer, saving your parking spot,
-         the map and nearby places. It never requests background location. You can turn location off at any
-         time in Android settings; the rest of the app keeps working.</p>
+      <h2>4. Google services inside the app</h2>
+      <p>These run in the background as part of the app. We don't add your name, records or photos to anything
+         they send.</p>
+      <ul>
+        <li><b>Google AdMob</b> shows full-screen ads (when you open the app and between some screens). AdMob may use
+            your device's advertising ID, IP address, device model and app usage to show and measure ads. If you
+            are in the EEA, the UK, Switzerland or a US state with a privacy law, the app asks for your choice
+            through Google's consent form before any ad is loaded. If that form was shown to you, you can change
+            your answer at any time in <b>Profile → Ad privacy choices</b>. You can also reset or delete your
+            advertising ID in Android settings.</li>
+        <li><b>Firebase Analytics</b> collects general usage statistics: when the app is opened, how long sessions
+            last, how often it's used, device model, Android version, app version and approximate country. It
+            uses an app-instance ID, not your name or email.</li>
+        <li><b>Firebase Crashlytics</b> sends a report when the app crashes: what went wrong in the code, device
+            model, Android version and the app's state at that moment. It helps us fix bugs.</li>
+        <li><b>Firebase Cloud Messaging</b> gives the app a device token so we can occasionally send a notification,
+            for example about an update. You can turn these off in Android's notification settings.</li>
+        <li><b>Firebase Remote Config</b> downloads app settings, such as service keys, so we can change them
+            without releasing an update.</li>
+        <li><b>Google Play Billing:</b> the app includes Google's billing library, but there is nothing to buy in
+            this version. If purchases are added later, Google Play handles payment and we never see your card
+            details.</li>
+      </ul>
+      <p>Google explains how it handles this data in its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>
+         and on <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from apps that use its services</a>.</p>
 
-      <h2>4. Camera, photos, files and contacts</h2>
-      <p>The app does not request camera, storage or contacts permissions. When you take a photo, pick an
-         image or file, or choose an emergency contact, Android's own camera, photo picker, file picker or
-         contact picker is used, and the app only receives the item you choose.</p>
-
-      <h2>5. Phone calls</h2>
-      <p>Emergency SOS and Drive Mode open your phone's dialer with the number filled in. The app does not
-         place calls by itself and does not read your call history.</p>
-
-      <h2>6. Notifications</h2>
-      <p>On Android 13 and later the app asks for notification permission when you set up a reminder, so it
-         can alert you about services, reminders and expiring documents. Notifications are created on your
+      <h2>5. Permissions</h2>
+      <ul>
+        <li><b>Location</b> (precise or approximate, your choice) is asked for the first time you use the
+            speedometer, parking, the Drive Mode map, nearby places or weather. It's used only while the app is
+            open. The app never asks for background location.</li>
+        <li><b>Notifications</b> (Android 13 and later) is asked when you set up a reminder. Reminders are scheduled
+            on your device and keep working after a restart.</li>
+        <li><b>Internet</b> is needed for the features in sections 2 to 4.</li>
+      </ul>
+      <p>There are a few permissions the app deliberately doesn't ask for:</p>
+      <ul>
+        <li><b>Camera.</b> Taking a photo opens your phone's camera app, and the app gets only the picture you take.</li>
+        <li><b>Storage or photos.</b> Android's photo picker and file picker give the app only the items you choose.</li>
+        <li><b>Contacts.</b> When you add an emergency contact from your phone, Android's contact picker hands over
+            just that contact's name and number.</li>
+        <li><b>Phone calls.</b> The SOS and Drive Mode call buttons open your dialer with the number filled in. You
+            place the call yourself.</li>
+      </ul>
+      <p>The local emergency numbers (police, rescue, ambulance) come from a list built into the app. The app picks
+         your country from your SIM or mobile network, or your phone's region setting, and none of this leaves the
          device.</p>
 
-      <h2>7. Advertising</h2>
-      <p>The app is free and shows ads through Google AdMob. AdMob may collect and use your device's
-         advertising ID and similar information to show and measure ads. Where the law requires it (for
-         example in the EEA, the UK and Switzerland), the app asks for your consent first using Google's
-         consent message, and you can change your choice later from <b>Profile → Ad privacy choices</b>.
-         You can also reset or delete your advertising ID in Android settings. See
-         <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses data from partner apps</a>.</p>
+      <h2>6. Deleting your data</h2>
+      <p>You can edit or delete any record yourself. <b>Profile → Delete all data</b> removes every vehicle, record,
+         document, photo, AI result, contact, saved place and setting from the app, and cancels scheduled
+         reminders. It can't be undone. The only thing it keeps is the built-in AI template gallery, which isn't
+         your data. Uninstalling the app removes everything as well.</p>
+      <p>Photos you sent to OpenAI, and data collected by Google's services, sit with those companies. We can't
+         delete it from our side, but we're happy to help you work out who to contact.</p>
 
-      <h2>8. In-app purchases</h2>
-      <p>If the app offers purchases, payments are handled entirely by Google Play. We never see your payment
-         details.</p>
+      <h2>7. Children</h2>
+      <p>The app is meant for drivers and vehicle owners. It isn't aimed at children under 13, and we don't knowingly
+         collect information from them.</p>
 
-      <h2>9. Children</h2>
-      <p>The app is meant for drivers and vehicle owners and is not directed at children under 13. We do not
-         knowingly collect personal information from children.</p>
+      <h2>8. Security</h2>
+      <p>Data on your device lives in the app's private storage. Every connection the app makes to an online
+         service uses HTTPS. No system is perfectly secure, so keep a screen lock on your phone, especially if you
+         store documents or your licence details in the app.</p>
 
-      <h2>10. Security</h2>
-      <p>Your data is kept in the app's private storage, which other apps cannot read. Connections to online
-         services use HTTPS. Please keep your device locked to protect the data on it.</p>
+      <h2>9. Your rights</h2>
+      <p>Depending on where you live (for example under the GDPR in Europe or state laws in the US), you may have
+         the right to access, correct or delete personal data, or object to how it's used. Most of your data is
+         under your own control in the app. For anything else, email us and we'll reply within 30 days.</p>
 
-      <h2>11. Your choices</h2>
-      <ul>
-        <li>Edit or delete any record in the app at any time.</li>
-        <li>Delete everything with <b>Profile → Delete all data</b>, or uninstall the app.</li>
-        <li>Turn off location, notifications or ad personalisation in Android settings.</li>
-        <li>Simply don't use the AI features if you don't want photos to be sent for processing.</li>
-      </ul>
+      <h2 id="disclaimer">10. Disclaimer</h2>
+      <p>Car Play Auto Sync is an independent app. It isn't made by, affiliated with or endorsed by Apple, Google or
+         ZLINK. CarPlay is a trademark of Apple Inc. and Android Auto is a trademark of Google LLC. Please don't
+         use the app in a way that takes your attention off the road. Set things up before you drive, and follow
+         local traffic laws.</p>
 
-      <h2 id="disclaimer">12. Disclaimer</h2>
-      <p>Car Play Auto Sync is an independent app. It is not made by, affiliated with, endorsed or sponsored by
-         Apple Inc., Google LLC or ZLINK. CarPlay is a trademark of Apple Inc. and Android Auto is a trademark of
-         Google LLC. AI results (car modifications and inspections) are generated automatically, may be inaccurate,
-         and are not a substitute for a professional mechanic. Always drive safely and follow local laws; do not
-         operate the app in a way that distracts you while driving.</p>
+      <h2>11. Changes</h2>
+      <p>When the app changes in a way that affects your data, we'll update this page and the date at the top. If a
+         change is significant, we'll also mention it in the app's release notes.</p>
 
-      <h2>13. Changes to this policy</h2>
-      <p>We may update this policy when the app changes. The new version will be posted on this page with a
-         new "Last updated" date.</p>
-
-      <h2>14. Contact</h2>
-      <p>Questions about privacy? Email <a href="mailto:bushramanzoor502@gmail.com">bushramanzoor502@gmail.com</a>.</p>
+      <h2>12. Contact</h2>
+      <p>UtilEdge<br>
+         Email: <a href="mailto:bushramanzoor502@gmail.com?subject=Privacy%20-%20Car%20Play%20Auto%20Sync">bushramanzoor502@gmail.com</a></p>
     </article>
   </div>
 </section>
