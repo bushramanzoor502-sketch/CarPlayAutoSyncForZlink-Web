@@ -2,14 +2,14 @@
 
 Marketing site (single page) plus a standalone privacy policy page for the **Car Play Auto Sync for ZLINK**
 Android app (`C:\github\SmartCarConnect-1`, package `utiledge.carplayandroid.carmirroring.auto.sync`).
-Same setup as the Full Audery website: no build step, no dependencies, deployed by GitHub Pages
-(`.github/workflows/deploy.yml`, on push to `master`).
+No build step, no dependencies. Hosted on Netlify (https://carplayautosyncforzlink-web.netlify.app), which
+deploys automatically on every push to `master`.
 
 ```bash
 python -m http.server 8080   # then open http://127.0.0.1:8080/
 ```
 (On Windows, Python's built-in server may send `.webp` as `application/octet-stream`, so images can look
-broken locally. GitHub Pages serves them correctly.)
+broken locally. Netlify serves them correctly.)
 
 ## Sections (`index.html`)
 | Anchor | Section |
