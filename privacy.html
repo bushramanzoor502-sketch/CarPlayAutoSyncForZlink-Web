@@ -34,7 +34,7 @@
     <article class="doc">
       <span class="eyebrow">Privacy policy</span>
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: 11 November 2026 · App version 5.0</p>
+      <p class="updated">Last updated: 11 November 2026</p>
 
       <p>This policy covers <b>Car Play Auto Sync for ZLINK</b>, an Android app made by UtilEdge. It explains what
          the app stores, what it sends over the internet, and who receives it. We wrote it from the app's actual
@@ -105,7 +105,8 @@
         <thead><tr><th>Feature</th><th>What is sent</th><th>Who receives it</th></tr></thead>
         <tbody>
           <tr><td>Map display</td><td>The map area on screen, and your position if you allowed location.</td><td>Google Maps</td></tr>
-          <tr><td>Search and nearby places</td><td>What you type, or the category you tap, plus an approximate location so results are local.</td><td>Google Places API. If that fails: OpenStreetMap Nominatim and the public Overpass servers</td></tr>
+          <tr><td>Search and nearby places</td><td>What you type, or the category you tap, plus your current location (or the map's centre) so results are local.</td><td>Google Places API. If that fails: OpenStreetMap Nominatim and the public Overpass servers listed below</td></tr>
+          <tr><td>Long-press on the map</td><td>The exact coordinates of the point you pressed, to look up its address or the nearest place.</td><td>Google Places API, or OpenStreetMap Nominatim</td></tr>
           <tr><td>Routes in Drive Mode</td><td>Start and end coordinates.</td><td>OSRM (project-osrm.org)</td></tr>
           <tr><td>Weather</td><td>Your coordinates. With no location fix, the app first asks ipwho.is for your city from your IP address.</td><td>Open-Meteo, ipwho.is</td></tr>
           <tr><td>Online music</td><td>Your search words. You get 30-second song previews.</td><td>Apple iTunes Search, Deezer</td></tr>
@@ -114,6 +115,8 @@
           <tr><td>Navigate to your car</td><td>The destination, handed to the maps app you choose.</td><td>Your maps app (for example Google Maps)</td></tr>
         </tbody>
       </table></div>
+      <p>The public Overpass servers the app may use are run by volunteers and organisations in different countries: overpass-api.de (Germany), overpass.openstreetmap.ru and maps.mail.ru (Russia) and overpass.nchc.org.tw (Taiwan). The app tries them in turn and they receive the same nearby-search request.</p>
+      <p>From a place's details you can call it, open its website, or share it. These only happen when you tap the button: calling opens your dialer, the website opens in your browser, and sharing uses Android's share sheet with the app you choose.</p>
       <p>Songs you add from your phone are played straight from your device. The app only gets access to the files
          you pick.</p>
 
@@ -167,9 +170,11 @@
 
       <h2>6. Deleting your data</h2>
       <p>You can edit or delete any record yourself. <b>Profile → Delete all data</b> removes every vehicle, record,
-         document, photo, AI result, contact, saved place and setting from the app, and cancels scheduled
-         reminders. It can't be undone. The only thing it keeps is the built-in AI template gallery, which isn't
-         your data. Uninstalling the app removes everything as well.</p>
+         document, photo, AI result, contact, saved place, music and radio favourite, SOS number and setting from
+         the app, gives back its access to songs you picked, resets the random install ID and cancels scheduled
+         reminders. It can't be undone. Two things are kept: the built-in AI template gallery, which isn't your
+         data, and today's count of AI requests, so the daily limit can't be reset this way. Uninstalling the
+         app removes everything.</p>
       <p>Photos you sent to OpenAI, and data collected by Google's services, sit with those companies. We can't
          delete it from our side, but we're happy to help you work out who to contact.</p>
 
