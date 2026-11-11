@@ -302,7 +302,7 @@ td:first-child { font-weight: 800; white-space: nowrap; }
 .site-footer .brand-name { font-size: 1.3rem; }
 .site-footer .brand-name small { color: #FFB59D; font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; }
 .footer-about { max-width: 420px; line-height: 1.7; margin-bottom: 22px; }
-.footer-col h4 { color: #FFF7F3; font-size: .85rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin: 8px 0 20px; }
+.footer-col .footer-title { color: #FFF7F3; font-size: .85rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin: 8px 0 20px; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
 .footer-col a { color: #D3BEB5; text-decoration: none; transition: color .2s; }
 .footer-col a:hover { color: #FF6B4A; }

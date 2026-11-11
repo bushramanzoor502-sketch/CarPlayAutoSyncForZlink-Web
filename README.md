@@ -35,7 +35,8 @@ dashboard's pastel washes. The site is always light, like the app. Font: Nunito 
 - `assets/img/screens/` — real screenshots from the phone (status bar cropped; number plate and the
   Drive Mode map blurred so no real location is shown).
 - `assets/img/art/` — car and inspection art from the app's `res/drawable-nodpi/`.
-- `assets/img/icons/` — launcher icon from `mipmap-xxxhdpi/`.
+- `assets/img/icons/` — launcher icon from `mipmap-xxxhdpi/`, resized: `icon_96.webp` (header/footer), `favicon_64.png`, `apple_180.png`.
+- `_headers` — Netlify cache rules: 7 days for `/assets/*` (bump the `?v=` query when a file changes).
 
 ## Before going live
 1. Confirm the Play Store URL works once the app is published.
