@@ -138,7 +138,7 @@ section { padding: clamp(64px, 9vw, 110px) 0; }
 .lede { font-size: 1.15rem; color: var(--muted); max-width: 580px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0 22px; }
 .hero-points { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; margin: 0 0 30px; color: var(--muted); font-weight: 700; font-size: .95rem; }
-.hero-points li::before { content: "✓"; color: var(--primary); font-weight: 900; margin-right: 6px; }
+.hero-points li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); margin-right: 8px; vertical-align: middle; }
 .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 520px; }
 .stat { background: var(--panel); border-radius: 18px; padding: 14px 16px; box-shadow: var(--shadow); }
 .stat strong { display: block; font-size: 1.45rem; font-weight: 900; color: var(--primary); line-height: 1.1; }
@@ -384,3 +384,5 @@ td:first-child { font-weight: 800; white-space: nowrap; }
   .brand-name { display: none; }
   .nav-cta .btn-sm { padding: 0 14px; min-height: 38px; font-size: .82rem; }
 }
+/* Privacy page on phones: the brand name and "Back to site" can't share one row, so keep just the icon. */
+@media (max-width: 560px) { .nav:has(.btn-back) .brand-name { display: none; } }
