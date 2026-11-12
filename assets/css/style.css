@@ -386,3 +386,6 @@ td:first-child { font-weight: 800; white-space: nowrap; }
 }
 /* Privacy page on phones: the brand name and "Back to site" can't share one row, so keep just the icon. */
 @media (max-width: 560px) { .nav:has(.btn-back) .brand-name { display: none; } }
+/* Never let anything widen the page sideways on phones (the screenshot strip scrolls inside its own box). */
+html, body { overflow-x: hidden; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
