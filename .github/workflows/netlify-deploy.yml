@@ -26,7 +26,7 @@ jobs:
         # Only the website goes live: no README, .git or workflow files.
         run: |
           mkdir _site
-          cp index.html privacy.html _headers _site/
+          cp index.html privacy.html _headers ads.txt app-ads.txt _site/
           cp -r assets _site/
           ls -R _site | head -50
 
