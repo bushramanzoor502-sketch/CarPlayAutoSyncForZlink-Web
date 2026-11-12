@@ -40,7 +40,7 @@ dashboard's pastel washes. The site is always light, like the app. Font: Nunito 
 
 ## Before going live
 1. Confirm the Play Store URL works once the app is published.
-2. `ads.txt` was copied from the Full Audery site (`pub-7900893619696665`). Confirm this app uses the same
-   AdMob account, or replace it.
+2. `ads.txt` / `app-ads.txt` is not included yet: the app still uses AdMob's test ID. Add it with the app's real
+   publisher ID (AdMob → Settings → Account information) once the release ID is set.
 3. Live at https://carplayautosyncforzlink-web.netlify.app (Netlify, deploys from `master`). The app's `PRIVACY_POLICY_URL` points to `/privacy.html` there.
 4. `og:image` already uses the absolute Netlify URL.
