@@ -38,10 +38,11 @@ jobs:
       - name: Deploy to Netlify (production)
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          # Project ID of carplayautosyncforzlink-web (not a secret). A NETLIFY_SITE_ID repo secret overrides it.
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID || '725a4e21-44ba-4de3-89d9-4e84380bab2e' }}
         run: |
           if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
-            echo "::error::Add the NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID secrets in GitHub: Settings > Secrets and variables > Actions."
+            echo "::error::Add the NETLIFY_AUTH_TOKEN secret in GitHub: Settings > Secrets and variables > Actions."
             exit 1
           fi
           npx --yes netlify-cli@17.38.1 deploy --dir=_site --prod --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN" --message "GitHub ${GITHUB_SHA::7}"

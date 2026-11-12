@@ -4,9 +4,9 @@ Marketing site (single page) plus a standalone privacy policy page for the **Car
 Android app (`C:\github\SmartCarConnect-1`, package `utiledge.carplayandroid.carmirroring.auto.sync`).
 No build step, no dependencies. Hosted on Netlify (https://carplayautosyncforzlink-web.netlify.app).
 `.github/workflows/netlify-deploy.yml` publishes it with the Netlify CLI on every push to `master` (README-only
-changes are skipped). It needs two repo secrets (Settings > Secrets and variables > Actions):
-`NETLIFY_AUTH_TOKEN` (Netlify: User settings > Applications > Personal access tokens) and `NETLIFY_SITE_ID`
-(Netlify: Project configuration > Project details > Project ID). It can also be run by hand from the Actions tab.
+changes are skipped). It needs one repo secret (Settings > Secrets and variables > Actions):
+`NETLIFY_AUTH_TOKEN` (Netlify: User settings > Applications > Personal access tokens). The Project ID
+`725a4e21-44ba-4de3-89d9-4e84380bab2e` is in the workflow; a `NETLIFY_SITE_ID` secret would override it. It can also be run by hand from the Actions tab.
 
 ```bash
 python -m http.server 8080   # then open http://127.0.0.1:8080/
