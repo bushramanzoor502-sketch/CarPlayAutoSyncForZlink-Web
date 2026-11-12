@@ -1,0 +1,47 @@
+name: Deploy to Netlify
+
+# Every push to master publishes the site to Netlify with the Netlify CLI, so no zip upload is needed.
+# README and other repo-only files don't trigger a deploy (each production deploy uses Netlify credits).
+on:
+  push:
+    branches: ["master"]
+    paths-ignore:
+      - "README.md"
+      - ".gitignore"
+  workflow_dispatch:
+
+# One deploy at a time; a newer push cancels an older one that is still running.
+concurrency:
+  group: netlify-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect site files
+        # Only the website goes live: no README, .git or workflow files.
+        run: |
+          mkdir _site
+          cp index.html privacy.html _headers _site/
+          cp -r assets _site/
+          ls -R _site | head -50
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Deploy to Netlify (production)
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::error::Add the NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID secrets in GitHub: Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          npx --yes netlify-cli@17.38.1 deploy --dir=_site --prod --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN" --message "GitHub ${GITHUB_SHA::7}"

@@ -2,8 +2,11 @@
 
 Marketing site (single page) plus a standalone privacy policy page for the **Car Play Auto Sync for ZLINK**
 Android app (`C:\github\SmartCarConnect-1`, package `utiledge.carplayandroid.carmirroring.auto.sync`).
-No build step, no dependencies. Hosted on Netlify (https://carplayautosyncforzlink-web.netlify.app), which
-deploys automatically on every push to `master`.
+No build step, no dependencies. Hosted on Netlify (https://carplayautosyncforzlink-web.netlify.app).
+`.github/workflows/netlify-deploy.yml` publishes it with the Netlify CLI on every push to `master` (README-only
+changes are skipped). It needs two repo secrets (Settings > Secrets and variables > Actions):
+`NETLIFY_AUTH_TOKEN` (Netlify: User settings > Applications > Personal access tokens) and `NETLIFY_SITE_ID`
+(Netlify: Project configuration > Project details > Project ID). It can also be run by hand from the Actions tab.
 
 ```bash
 python -m http.server 8080   # then open http://127.0.0.1:8080/
