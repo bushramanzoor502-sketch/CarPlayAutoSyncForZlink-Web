@@ -389,3 +389,4 @@ td:first-child { font-weight: 800; white-space: nowrap; }
 /* Never let anything widen the page sideways on phones (the screenshot strip scrolls inside its own box). */
 html, body { overflow-x: hidden; }
 @supports (overflow: clip) { html, body { overflow-x: clip; } }
+@media (max-width: 420px) { .stat strong { font-size: 1.02rem; white-space: nowrap; } }
